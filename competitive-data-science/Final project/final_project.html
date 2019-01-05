@@ -14007,7 +14007,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="let's-group-by-some-categorial-features-and-add-lag-of-this-grouping">let's group by some categorial features and add lag of this grouping<a class="anchor-link" href="#let's-group-by-some-categorial-features-and-add-lag-of-this-grouping">&#182;</a></h4>
+<h4 id="let's-group-by-some-categorial-features-and-add-lag-of-this-grouping-(-features-interaction-)">let's group by some categorial features and add lag of this grouping ( features interaction )<a class="anchor-link" href="#let's-group-by-some-categorial-features-and-add-lag-of-this-grouping-(-features-interaction-)">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14268,7 +14268,8 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#if we will validate, then don&#39;t use data from test-set, where date_block_num == 35</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#we split test set o furture block_num</span>
+<span class="c1">#if we will validate, then don&#39;t use data from test-set, where date_block_num == 35</span>
 <span class="k">if</span> <span class="n">validation</span><span class="p">:</span>
     <span class="n">f_tr</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">date_block_num</span> <span class="o">&lt;</span> <span class="mi">34</span><span class="p">]</span>
     <span class="n">y_tr</span> <span class="o">=</span> <span class="n">f_tr</span><span class="p">[</span><span class="n">y_f</span><span class="p">]</span>
@@ -14302,7 +14303,7 @@ dtype: int64</pre>
 <span class="c1">#counter to fill f_tr2</span>
 <span class="n">ss</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># Now fill `X_train_level2` with metafeatures</span>
+<span class="c1"># Now fill `X_train_level2` with metafeatures using KFold-like for time-series</span>
 <span class="k">for</span> <span class="n">cur_block_num</span> <span class="ow">in</span> <span class="n">lv2</span><span class="p">:</span>
     
     <span class="nb">print</span><span class="p">(</span><span class="n">cur_block_num</span><span class="p">)</span>
@@ -14410,6 +14411,26 @@ dtype: int64</pre>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ID&#39;</span><span class="p">)</span>
 
     <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;test_preds.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="After-several-submissions-we-can-see-that-the-split-for-public-and-private-test-set-is-randomly">After several submissions we can see that the split for public and private test set is randomly<a class="anchor-link" href="#After-several-submissions-we-can-see-that-the-split-for-public-and-private-test-set-is-randomly">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
